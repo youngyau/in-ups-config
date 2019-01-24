@@ -1,2 +1,3 @@
-# in-ups-config-dev
-国内开发环境的外部配置
+# IN-UPS-CONFIGURATION 国内UPS环境外部配置及规则
+
+
