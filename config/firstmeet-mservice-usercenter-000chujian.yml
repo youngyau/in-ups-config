@@ -25,19 +25,38 @@ spring:
   jpa:
     database: mysql
     show-sql: false
+  #邮件
+  mail:
+    host: smtp.16801.com
+    port: 25
+    username: thai-support@16801.com
+    password: 3a3d7d00gDN0Hdvj
+    default-encoding: utf-8
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    encoding: UTF-8
+    enabled: true
 management:
   endpoints:
     web:
       exposure:
         include: '*'
 chujian:
+  usercenter:
+    hostname: usercenter.ups.frestmeet
+    port: 6565
+  uid-generator:
+    hostname: uidgenerator.ups.frestmeet
+    port: 6565
+  main-account: email
+  send-email:
+    forget-password:
+      theme: กู้คืนรหัสFirstmeet
+      expire-time: 30
+      base-path: https://test.hwtg.16801.com:8443
+  password:
+    enable-encode: true
   token:
     key:
-      jks-filepath: chujian.jks
-      password: password
-      alias: chujian
       public-key-string: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB
-health:
-  config:
-    enabled: true
-    time-to-live: 86400000

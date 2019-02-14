@@ -1,9 +1,10 @@
+
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     platform: mysql
-    url: jdbc:mysql://192.168.1.220:3306/user_center?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://192.168.1.220:3306/uid_generator?useUnicode=true&characterEncoding=utf-8
     username: kaifa
     password: chujian8
     druid:
@@ -22,22 +23,8 @@ spring:
         stat:
           log-slow-sql: true
           slow-sql-millis: 1000
-  jpa:
-    database: mysql
-    show-sql: false
 management:
   endpoints:
     web:
       exposure:
         include: '*'
-chujian:
-  token:
-    key:
-      jks-filepath: chujian.jks
-      password: password
-      alias: chujian
-      public-key-string: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB
-health:
-  config:
-    enabled: true
-    time-to-live: 86400000
