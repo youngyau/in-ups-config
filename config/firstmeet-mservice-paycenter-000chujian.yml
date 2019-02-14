@@ -82,12 +82,12 @@ alipay:
 
 
 weixinpay:
-    inter.orderurl: 'https://api.mch.weixin.qq.com/pay/unifiedorder'
-    inter.appid: '1111111'
-    inter.machid: '1111111'
-    inter.callbackurl: 'http://paycenter.ups.firstmeet:8080/callback'
-    inter.tradeType: 'app'
-    inter.key: '217328729'
+  inter.orderurl: 'https://api.mch.weixin.qq.com/pay/unifiedorder'
+  inter.appid: 'wx2e46ac25999c57a5'
+  inter.machid: '1458600902'
+  inter.callbackurl: '${paycenter.chujian.host.url}/chujianpay/wx/callback'
+  inter.tradeType: 'APP'
+  inter.key: '8d7d6e40b71344c6971231e99a2f1c7d'
 
 
 chujian:
