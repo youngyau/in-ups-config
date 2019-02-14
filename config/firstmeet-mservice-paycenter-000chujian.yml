@@ -1,0 +1,102 @@
+server:
+  ssl:
+    key-store: classpath:https_keystore.p12
+    key-store-password: chujian
+    keyStoreType: PKCS12
+    keyAlias: 1
+  port: 8443
+  http-port: 8080
+  servlet:
+    application-display-name: firstmeet-mservice-paycenter-000chujian
+    contextPath: /
+  tomcat:
+    basedir: "./"
+    accesslog:
+      enabled: true
+      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/access-log
+    customized.enable: true
+    customized.accept-count: 100
+    customized.max-threads: 200
+    customized.min-spare-threads: 25
+    customized.max-connections: 10000
+    customized.connection-timeout: 2000
+    manager.enable: false
+    manager.context-path: '/data/webapps/manager'
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    platform: mysql
+    url: jdbc:mysql://192.168.1.220:3306/pay_center_chujian?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true
+    username: kaifa
+    password: chujian8
+    druid:
+      initial-size: 50
+      min-idle: 50
+      max-active: 600
+      max-wait: 2000  #配置获取连接等待超时的时间
+      time-between-eviction-runs-millis: 60000 #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      min-evictable-idle-time-millis: 300000 #配置一个连接在池中最小生存的时间，单位是毫秒
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      filters: stat,slf4j
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  jackson:
+    serialization:
+      indent_output: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+paycenter.chujian.host.url: 'http://paycenter.ups.firstmeet:8080'
+
+alipay:
+  order.checkOn: true
+  payment:
+    url: 'https://openapi.alipay.com/gateway.do'
+    notify.url: '${paycenter.chujian.host.url}/chujianpay/zfb/callback'
+    return.url: 'TestSDK://TestSDK.13cd.com'
+    appId: 2088821471045404
+    private.key: 'MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKENzklnO0P7tW9uRpWfOYQRm3KJlk0+dwnSgi0xtmpmyJ0ceaCtSrPSSGvKhbPr4+kYMHeOYgNraDAxNwz7G3YjogkoyvmHlreOgMH19XkpnVr4ZK4+b0CFhwCwuvVhWfmEM8vz55zFQN/aOV6BcquOpj4IvvwZR/x3tJAQK9xtAgMBAAECgYBQsL0Q88KyvfLaQHLm1d6YN8YdLaf7TXeQmUKVaBnP121dof2iLhCGZa3ZK5+vVFlc2Ly3ucOLmQ2bT50YSNspmsgHBclYbYTi+krrAYOeGbXL/Us2ab/IX6AUQ7yMrjVtoZM6VCwCsSKzr41I881MdmhEiddZUJXJtxanX33CgQJBANbdZbi2abOxhA3SvnBcupvMYd/g9mSwgHS5kG/XLGW/kwW7q1OF79Tzt0e6mhBF5jxGh+vCMosxlug5e+9HO00CQQC/4x3gXQ10aI3BFINF3Nur62vaQ+XXv2d6W0g6NadLuD8xCPEEgJcHej1VHvOWUtLf3jAE9ZcCrSoK4b9261WhAkAGw3tjQCK9rFXa1Yp3IQQiyWE/WeaHruKsSfcY/i4AmfI32PuAqpOtIWrgkCgvYPPpa9L1gexzY0E72Ctlkdl1AkEAjcyaEWjyPmndByfPclspgjwwsVSnju2E3GiEUW/AtzXqjKPc58TW1tHAbRy4SQffiUu6FJAgDfxFK1Fzmb+CwQJBAMXlwCeAckOLXdcuXdVfta0hFJr8n3yCMHGcn+E7jR+ZrcfzaEldyLnS3NPtJ/K3wysHXI6JkiJs/EYg3xc8/MA='
+    format: json
+    charset: UTF-8
+    public.key: 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDI6d306Q8fIfCOaTXyiUeJHkrIvYISRcc73s3vF1ZT7XN8RNPwJxo8pWaJMmvyTn9N4HQ632qJBVHf8sxHi/fEsraprwCtzvzQETrNRwVxLO5jVmRGi60j8Ue1efIlzPXV9je9mkjzOmdssymZkh2QhUrCmZYI/FCEa3/cNMW0QIDAQAB'
+    signType: RSA2
+
+
+weixinpay:
+  inter.orderurl: 'https://api.mch.weixin.qq.com/pay/unifiedorder'
+  inter.appid: 'wx2e46ac25999c57a5'
+  inter.machid: '1458600902'
+  inter.callbackurl: '${paycenter.chujian.host.url}/chujianpay/wx/callback'
+  inter.tradeType: 'APP'
+  inter.key: '8d7d6e40b71344c6971231e99a2f1c7d'
+
+
+chujian:
+   token:
+     key:
+       public-key-string: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB'
+   mta:
+     log:
+       enable: true
+       path: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/mta-log
+   uid:
+     enable: true
