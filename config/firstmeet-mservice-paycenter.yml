@@ -1,0 +1,124 @@
+server:
+  ssl:
+    key-store: classpath:https_keystore.p12
+    key-store-password: chujian
+    keyStoreType: PKCS12
+    keyAlias: 1
+  port: 8443
+  http-port: 8080
+  servlet:
+    application-display-name: firstmeet-mservice-paycenter
+    contextPath: /
+  tomcat:
+    basedir: "./"
+    accesslog:
+      enabled: true
+      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/access-log
+    customized.enable: true
+    customized.accept-count: 100
+    customized.max-threads: 200
+    customized.min-spare-threads: 25
+    customized.max-connections: 10000
+    customized.connection-timeout: 2000
+    manager.enable: false
+    manager.context-path: '/data/webapps/manager'
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    platform: mysql
+    url: jdbc:mysql://192.168.1.220:3306/pay_center?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true
+    username: kaifa
+    password: chujian8
+    druid:
+      initial-size: 50
+      min-idle: 50
+      max-active: 600
+      max-wait: 2000  #配置获取连接等待超时的时间
+      time-between-eviction-runs-millis: 60000 #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      min-evictable-idle-time-millis: 300000 #配置一个连接在池中最小生存的时间，单位是毫秒
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      filters: stat,slf4j
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  jackson:
+    serialization:
+      indent_output: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+bluepay:
+  cashcard.url: 'http://test.webpay.bluepay.tech/bluepay/cashcard/index.php'
+  order.checkOn: true
+  querytrans.detail.url: 'http://120.76.101.146:8160/thaiCharge/service/queryTransDetail'
+  encrypt.key: 'e44865ae64739e08'
+
+googlepay:
+  order.checkOn: true
+  verify.publicKey: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk7YQGvyvqVRiKlu+b0lJndwjMGM6Em8QmO+RbuI3Rdta2dxF5wEJEEb6a2Fo/UdWXadylYPtWT/uGMM0EURwyWdAAKY/4rhnBlPA4rL/FC/Y909KgAcSaXCKyc4pj1il+Vc1k8BVDL+VWM/DYzie0Rm3rKM2ml7hnmLxlvA4YNqdwHR7FXryyRxtMuD7KHSOxRGOogMBmfwpmhmoYPJ9imBJ516SbBPJZncw7xPMJ3xtXuhfb6iOLM1FSvy2woM5+j1gqvvmAUAAWMVc07QQ20h+1FnO7O9IMYMqe4xvRgaa5NSpczB5IXsoTK9ZbMbZzFpluVx2P2ySBx5vPiSdGwIDAQAB'
+
+applepay:
+  order.checkOn: true
+  querytrans.sandbox.url: 'https://sandbox.itunes.apple.com/verifyReceipt'
+  querytrans.online.url: 'https://buy.itunes.apple.com/verifyReceipt'
+
+paycenter.host.url: 'http://paycenter.ups.firstmeet:8080'
+
+order.get.url: '${paycenter.host.url}/orders/{order_id}'
+orders.get.url: '${paycenter.host.url}/orders/ids'
+
+order.get.urls:
+  channels:
+    bluepay : '${paycenter.host.url}/bluepay/callbacks/{order_id}'
+    googlepay : '${paycenter.host.url}/googlepay/callbacks/{order_id}'
+    applepay : '${paycenter.host.url}/applepay/callbacks/{order_id}'
+
+orders.get.urls:
+  channels:
+    bluepay : '${paycenter.host.url}/bluepay/callbacks/orders/ids'
+    googlepay : '${paycenter.host.url}/googlepay/callbacks/orders/ids'
+    applepay : '${paycenter.host.url}/applepay/callbacks/orders/ids'
+
+order.notify.shipping.url: '${paycenter.host.url}/shipping/deliverynotes/notify'
+
+shoppe.variants.get.url: 'http://shoppecenter.ups.firstmeet:8080/shoppes/{shoppe_id}/variants'
+
+gameserver.shipping.clients:
+  default:
+    url: 'http://shippingcenter.ups.firstmeet:8080/shipping/gameserver/notify'
+    count: 6
+    interval: 5000
+
+chujian:
+   token:
+     key:
+       public-key-string: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB'
+   mta:
+     log:
+       enable: true
+       path: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/mta-log
+   uid:
+     enable: true
+
+health:
+  config:
+    enabled: true
+    time-to-live: 86400000

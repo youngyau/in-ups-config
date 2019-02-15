@@ -1,0 +1,56 @@
+server:
+  ssl:
+    key-store: classpath:https_keystore.p12
+    key-store-password: chujian
+    keyStoreType: PKCS12
+    keyAlias: 1
+  port: 8443
+  http-port: 8080
+  servlet:
+    application-display-name: firstmeet-mservice-mta-track
+    contextPath: /
+  tomcat:
+    basedir: "./"
+    accesslog:
+      enabled: true
+      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/access-log
+    customized.enable: true
+    customized.accept-count: 100
+    customized.max-threads: 200
+    customized.min-spare-threads: 25
+    customized.max-connections: 10000
+    customized.connection-timeout: 2000
+    manager.enable: false
+    manager.context-path: '/data/webapps/manager'
+
+spring:
+  jackson:
+    serialization:
+      indent_output: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+chujian:
+   token:
+     key:
+       public-key-string: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB'
+
+mta.setting:
+  clients:
+    default:
+      interval: 30000
+      enable_report: 'ALL'
+      parts:
+        - 'SDKActivatedEvent'
+        - 'SplashStartRequestedEvent'
+
+event.rule.path: 'classpath*:rules/**/*.drl' #Can configure absolute path: file:/data/mta/rules/**/*.drl
+
+health:
+  config:
+    enabled: true
+    time-to-live: 86400000

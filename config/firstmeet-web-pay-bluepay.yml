@@ -1,0 +1,84 @@
+server:
+  ssl:
+    key-store: classpath:https_keystore.p12
+    key-store-password: chujian
+    keyStoreType: PKCS12
+    keyAlias: 1
+  port: 8443
+  http-port: 8080
+  servlet:
+    application-display-name: firstmeet-web-pay-bluepay
+    contextPath: /
+    session:
+      timeout: -1
+  tomcat:
+    basedir: "./"
+    accesslog:
+      enabled: true
+      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/access-log
+    customized.enable: true
+    customized.accept-count: 100
+    customized.max-threads: 200
+    customized.min-spare-threads: 25
+    customized.max-connections: 10000
+    customized.connection-timeout: 2000
+    manager.enable: false
+    manager.context-path: '/data/webapps/manager'
+
+facebook.appId: '397359414136334'
+facebook.appSecret: '99af8ada4d54aa411af6f41d2c85f996'
+facebook.callbackUrl: ''
+
+chujian.clientId: 'thtg'
+chujian.clientSecret: 'thtg'
+
+chujian.usercenter.url : 'http://usercenter.ups.firstmeet:8080'
+chujian.paycenter.url: 'http://paycenter.ups.firstmeet:8080'
+chujian.gameinfocenter.url: 'http://150.109.167.167:8848'
+
+chujian.user.me.url: '${chujian.usercenter.url}/user/me'
+chujian.user.auth.url : '${chujian.usercenter.url}/oauth/token'
+facebook.user.auth.url: '${chujian.usercenter.url}/auth/v2/token4facebook'
+
+gameinfo.platform.list.url: '${chujian.gameinfocenter.url}/platformlist'
+gameinfo.server.list.url: '${chujian.gameinfocenter.url}/serverlist'
+gameinfo.char.list.url: '${chujian.gameinfocenter.url}/charlist'
+gameinfo.char.list.mock : true
+
+chujian.checkout.url: '${chujian.paycenter.url}/checkout'
+chujian.bluepay.callback.url: '${chujian.paycenter.url}/bluepay/callbacks'
+
+chujian.order.list.url: '${chujian.paycenter.url}/query/orders'
+
+bluepay.cashcard.url: 'http://test.webpay.bluepay.tech/bluepay/cashcard/index.php'
+bluepay.product.id: '1999'
+bluepay.shoppe.id: 'thtg_bluepay'
+
+spring.thymeleaf:
+  prefix: classpath:/templates/
+  suffix: .html
+  mode: HTML5
+  encoding: UTF-8
+  #热部署文件，页面不产生缓存，及时更新, 在开发阶段设置为false
+  cache: false
+
+spring.resources.chain.strategy.content.enabled: true
+spring.resources.chain.strategy.content.paths: /**
+
+spring:
+  jackson:
+    serialization:
+      indent_output: true
+  messages:
+    basename: i18n.messages
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+health:
+  config:
+    enabled: true
+    time-to-live: 86400000
