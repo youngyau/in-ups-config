@@ -31,6 +31,8 @@ management:
       exposure:
         include: '*'
 chujian:
+  password:
+    enable-encode: true
   token:
     key:
       jks-filepath: chujian.jks
