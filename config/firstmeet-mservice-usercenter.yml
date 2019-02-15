@@ -43,3 +43,7 @@ health:
   config:
     enabled: true
     time-to-live: 86400000
+server:
+  port: 8080
+grpc:
+  port: 6565
