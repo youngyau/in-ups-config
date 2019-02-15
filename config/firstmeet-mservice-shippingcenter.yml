@@ -1,0 +1,38 @@
+server:
+  ssl:
+    key-store: classpath:https_keystore.p12
+    key-store-password: chujian
+    keyStoreType: PKCS12
+    keyAlias: 1
+  port: 8443
+  http-port: 8080
+  servlet:
+    application-display-name: firstmeet-mservice-shippingcenter-demogameserver
+    contextPath: /
+  tomcat:
+    basedir: "./"
+    accesslog:
+      enabled: true
+      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/access-log
+    customized.enable: true
+    customized.accept-count: 100
+    customized.max-threads: 200
+    customized.min-spare-threads: 25
+    customized.max-connections: 10000
+    customized.connection-timeout: 2000
+    manager.enable: false
+    manager.context-path: '/data/webapps/manager'
+
+spring:
+  jackson:
+    serialization:
+      indent_output: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+deliverynote.response.status: 'OK'
+deliverynote.public-key-string: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmp8kPkUj9DuP1SOpXIQaQf0NDaRqDb+KGfuKXXEVhsmdfTpcbNqtckCS9a8Jzl84a8e2OUpsvv/irN0UCEWW1J6P9iT4t2ntGPlV2UmHTr77NAkqcSVEatT0uhDy5OpazJtt0I7SXqmSQ+dzutTdzcSDQ3flkO/Q//YJbCxI3417mlI8WrPWZFBYuGtk5whki2kTkU/m5DUyA/Ei6jqQRqMqSgbEaK4dCyAm80as1mLq9bZAKYDMRkfQXYN9VV5aQB1g6TdXL0lD0yinbpV73qffnDnPSaxT2hhHWHVSsGvHrAF630KuRmrQUfmojYIKxHb+r0qGXDBsMciswuSBPwIDAQAB'
