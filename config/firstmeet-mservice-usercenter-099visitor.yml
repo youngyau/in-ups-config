@@ -31,6 +31,8 @@ management:
       exposure:
         include: '*'
 chujian:
+  password:
+    enable-encode: true
   usercenter:
     hostname: usercenter.ups.frestmeet
     port: 6565
