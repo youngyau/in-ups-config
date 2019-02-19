@@ -60,6 +60,19 @@ chujian:
   token:
     key:
       public-key-string: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB
+aliyun:
+  sms:
+    access-key-id: LTAIAhjBU3Ocdo0b
+    access-key-secret: 5LI7QlVkOjSP4JnLq0S8ifLOrD83vd
+    sign-name: 初见科技
+    connect-timeout: 1000
+    read-timeout: 1000
+    verification-code:
+      #开关关闭不发送
+      enable: false
+      template-code: SMS_89655023
+      #过期时间，以秒为单位
+      expire-time: 60
 server:
   port: 8080
 grpc:
