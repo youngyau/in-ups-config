@@ -70,7 +70,7 @@ aliyun:
     verification-code:
       #开关关闭不发送
       enable: false
-      template-code: SMS_89655023
+      template-code: SMS_158051444
       #过期时间，以秒为单位
       expire-time: 60
 server:
