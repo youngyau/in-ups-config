@@ -34,10 +34,10 @@ chujian:
   password:
     enable-encode: true
   usercenter:
-    hostname: usercenter.ups.frestmeet
+    hostname: usercenter.ups.firstmeet
     port: 6565
   uid-generator:
-    hostname: uidgenerator.ups.frestmeet
+    hostname: uidgenerator.ups.firstmeet
     port: 6565
   visitor:
     enable: true
