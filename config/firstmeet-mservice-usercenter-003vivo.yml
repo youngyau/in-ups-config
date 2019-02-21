@@ -34,10 +34,10 @@ management:
         include: '*'
 chujian:
   usercenter:
-    hostname: usercenter.ups.frestmeet
+    hostname: usercenter.ups.firstmeet
     port: 6565
   uid-generator:
-    hostname: uidgenerator.ups.frestmeet
+    hostname: uidgenerator.ups.firstmeet
     port: 6565
   token:
     key:
