@@ -4,10 +4,10 @@ server:
     key-store-password: chujian
     keyStoreType: PKCS12
     keyAlias: 1
-  port: 8443
-  http-port: 8080
+  port: 8444
+  http-port: 8081
   servlet:
-    application-display-name: firstmeet-mservice-paycenter-000chujian
+    application-display-name: firstmeet-mservice-paycenter-chujian
     contextPath: /
   tomcat:
     basedir: "./"
@@ -65,29 +65,28 @@ management:
       exposure:
         include: '*'
 
-paycenter.chujian.host.url: 'http://paycenter.ups.firstmeet:8080'
+paycenter.chujian.host.url: 'https://upsdev.16801.com/chujianpay'
 
 alipay:
-  order.checkOn: true
   payment:
     url: 'https://openapi.alipay.com/gateway.do'
     notify.url: '${paycenter.chujian.host.url}/chujianpay/zfb/callback'
     return.url: 'TestSDK://TestSDK.13cd.com'
-    appId: 2088821471045404
-    private.key: 'MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKENzklnO0P7tW9uRpWfOYQRm3KJlk0+dwnSgi0xtmpmyJ0ceaCtSrPSSGvKhbPr4+kYMHeOYgNraDAxNwz7G3YjogkoyvmHlreOgMH19XkpnVr4ZK4+b0CFhwCwuvVhWfmEM8vz55zFQN/aOV6BcquOpj4IvvwZR/x3tJAQK9xtAgMBAAECgYBQsL0Q88KyvfLaQHLm1d6YN8YdLaf7TXeQmUKVaBnP121dof2iLhCGZa3ZK5+vVFlc2Ly3ucOLmQ2bT50YSNspmsgHBclYbYTi+krrAYOeGbXL/Us2ab/IX6AUQ7yMrjVtoZM6VCwCsSKzr41I881MdmhEiddZUJXJtxanX33CgQJBANbdZbi2abOxhA3SvnBcupvMYd/g9mSwgHS5kG/XLGW/kwW7q1OF79Tzt0e6mhBF5jxGh+vCMosxlug5e+9HO00CQQC/4x3gXQ10aI3BFINF3Nur62vaQ+XXv2d6W0g6NadLuD8xCPEEgJcHej1VHvOWUtLf3jAE9ZcCrSoK4b9261WhAkAGw3tjQCK9rFXa1Yp3IQQiyWE/WeaHruKsSfcY/i4AmfI32PuAqpOtIWrgkCgvYPPpa9L1gexzY0E72Ctlkdl1AkEAjcyaEWjyPmndByfPclspgjwwsVSnju2E3GiEUW/AtzXqjKPc58TW1tHAbRy4SQffiUu6FJAgDfxFK1Fzmb+CwQJBAMXlwCeAckOLXdcuXdVfta0hFJr8n3yCMHGcn+E7jR+ZrcfzaEldyLnS3NPtJ/K3wysHXI6JkiJs/EYg3xc8/MA='
+    appId: 2018012302042556
+    private.key: 'MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDRXUsN5/KDKpenY5DujAfyejnMviDE1vsv5tlr+NRNtw8o+0InKwDlxNz6xes3Nqutr1RgJ3a356qqBLkgjryThQ+TElx3/FSn8/EK4aT5buo7LUk9qWp+mWo3XIvK7M9UTHrfNKsEcidxZif6XZJFV1Dh1lBMkPTTYYx1pLxtxExhnSKl1BPdhMF/Rj34K0VjDcbU3ko7EP5RuzHmO8zoie90Q7vRf2yPIurQ6owAidbSZnfkcL8B69jWWJRENcQaV1eJINZEs2CUMkYfYnca184cxPvuWi12pnCbRjLtPBFqQrbwgt0xtLHWKaTRc1l3H0qCXANr84AiGXvndq1DAgMBAAECggEAcHm2QJpDZsQTBRIwYndILbQMKTpbUGROPcW/OIpNRBL8Sf/x4ijwKoBAV1jMrLTqNjzjD2UkGliTDxPKgPstw/LQEyriEnO05yXecQIYJwi3PWNu3XmOhMTWkzdcwn/GQntz50XcOl85YWqIP7DVS/tEsI76RKf7XzQgyXLe5/h7ZAwNkuPLva+AMqdjL/3yMyLOvIp60GfeUopWVhFq7JtAmiZHj474+7cSNdCm+rZ0dPxGXO+stdudCEwMgEW9A/Mu01ZnFF5rXzSJQKZM/8rKGZbQSaRFUzh0i3AmtUFvNB4ctB8c8Qyrd+vx+QWG0NuTeuR/h0LoGuku2r1YAQKBgQD9wu0vTnBR6604qy7GHWtj/rxYWPyGEZeX3/U+Me1ldSbXp72WurUVwCyUvFg8SzbtzEFsGMWsPDpMhm4BPozKGCenpLjX8fE10+NGZevyyEBcrYgoIfFfjrwvb/yxkJ8lhe6fcrQd20KS4LFAKbEIC6utcDNCbvaDTFslBszNgQKBgQDTNhqtmtr0e4Dg8DCrvtIDWr3157e3DZeKbusOoijR6ePIPkByS2KtwD7FcAzHkb5LpyZq81p/cvm23PegmiXxRV6b5JnTjJii8d5wecWG5Vo8aT1WU1PQHrncKPwCVyTjIFHgGUO3e9YjWKbqDtZjLENcOV1v37YzeJsxVJAkwwKBgECgy2136a1De6tqFZCJX5dpAijyCOZQRq58cGY1qwNi8dCMvQFNbd8rQW9kBIjekw+/LI5ORNHXyPVCa3PPrWWu/zJ4BkehK9CMtV5xiMUdcR7pZzrpYiL3JEBkohPLBG03Dg331Z2hAPSNWzc/JwIojsGuSK/LuOa5pKDqeXCBAoGBAJVjhUcZapjV6fgvqx0u4LhCrG2LsaOl13OwtE0rYRfoCJaPgWHV9DvU6BEaCc/2Q9Saq0+mRHI0zm8Kp5NOtFuMpzg4Xp0EqslFrgF7/7xD6Kkl/p5aXcOsl+Uij+zP2mVTbNXGyOC0lGd3wsd2KykGG7bVVENWxjZtrcccer+lAoGAEv8ZEG7aaMafktLA8X4vG0YlIbKrc07IAfEXD1PcsWdsTTsb34+X5J+TF4eHraylMwlVQdl8WykL1t2D0RgDNTjNL09forCh28Z/2lkmLHk1Oqcwwsn45JqbAD7a9i5VGOI+x447l5LJDg6InIuhyCwsWdsqzPtO4Bh9zfM+2qE='
     format: json
     charset: UTF-8
-    public.key: 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDI6d306Q8fIfCOaTXyiUeJHkrIvYISRcc73s3vF1ZT7XN8RNPwJxo8pWaJMmvyTn9N4HQ632qJBVHf8sxHi/fEsraprwCtzvzQETrNRwVxLO5jVmRGi60j8Ue1efIlzPXV9je9mkjzOmdssymZkh2QhUrCmZYI/FCEa3/cNMW0QIDAQAB'
+    public.key: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnSOQxWARrqxmH3iBTY7R+2RRjF4ZqsyUAlZpgAulVTnRZC5IGoipULeHAqiTkZDMzKkyTZ2Z+IZNtswxgyfd7PsRuyeO8upcOx0+ad9OG4gR/wXHgx998QYtXNo30YODP41eyNe6Nycdd41r4SOnLuJNZCIKsxXw7MWFX8fMoh/nQb8IFOazgYvrpP2wXBjZebmAw2K8R7kDfjuB5ammzv+c9IaRDuudkgvzc3ocvJgzUWo2pETnOXCpFZtZ97NPUk6L5ILbPqS4BGeFk7n/c6tm7sZnbMZlUJKaqSBHty+06nUEOoWJ3zc4WN1HxQzixD37U1QttXgE/yNJcl+/9wIDAQAB'
     signType: RSA2
 
-
 weixinpay:
-  inter.orderurl: 'https://api.mch.weixin.qq.com/pay/unifiedorder'
-  inter.appid: 'wx2e46ac25999c57a5'
-  inter.machid: '1458600902'
-  inter.callbackurl: '${paycenter.chujian.host.url}/chujianpay/wx/callback'
-  inter.tradeType: 'APP'
-  inter.key: '8d7d6e40b71344c6971231e99a2f1c7d'
+        inter.order.url: 'https://api.mch.weixin.qq.com/pay/unifiedorder'
+        inter.verify.url: 'https://api.mch.weixin.qq.com/pay/orderquery'
+        inter.appid: 'wx452cb3d9a14e0d20'
+        inter.machid: '1525669961'
+        inter.callback.url: '${paycenter.chujian.host.url}/chujianpay/wx/callback'
+        inter.tradeType: 'APP'
+        inter.key: 'Z6L0IX8dsW7x1extgbHbCVZkIxpZVR9k'
 
 
 chujian:
@@ -100,3 +99,5 @@ chujian:
        path: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/mta-log
    uid:
      enable: true
+
+
