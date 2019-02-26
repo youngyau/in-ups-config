@@ -26,11 +26,6 @@ spring:
     hibernate:
       ddl-auto: update
     database: mysql
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
 chujian:
   usercenter:
     hostname: usercenter.ups.firstmeet
