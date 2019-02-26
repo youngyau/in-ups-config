@@ -65,7 +65,7 @@ management:
       exposure:
         include: '*'
 
-paycenter.vivopay.host.url: 'http://192.168.1.218:8080'
+paycenter.vivopay.host.url: 'https://upsdev.16801.com/vivopay'
 
 vivopay:
   cpId: 'd3213115bfd5b17695f1'
