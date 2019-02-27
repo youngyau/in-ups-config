@@ -36,9 +36,8 @@ chujian:
   token:
     key:
       jks-filepath: chujian.jks
-      password: password
-      alias: chujian
-      public-key-string: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB
+      password: '{cipher}AQABbLNwEC0cltxZp/i6igHpsvNd5pyKe0y5Ztsn2l+CvWicMZ0twGT2wma/LTWKJLH8X/abuhIwH5ZNs2SsbEzMC3NxiINvzbYCUGN/67Pa8mgvg/Di87sMbauRW391GguHsRW0x0HuAQZi3D/4EJr/vJC4vzsNexzcIWtq2MsIg0mlZXQpqrC84W+w8/XIAeVR1YNDyVThtRLcCqDeGmrzUL14W8gLSGlz0t8JLasCctadDPRUGVi89unF1bFMEtWFirwcsslxii58SbI/XlLyyvTc/dIo0yOExO/CneE0/QpUW+DMyrh6fyySI+ZUqRAGa1+NNIjXc/uMPhlNPgQrS0oPm6bd3m7BYlcW73g7y7M/eJS/F3WAHWrWWKBwIYA='
+      alias: '{cipher}AQBE727YYtpL4NZ0h/ycJRyp6nY6k7/O8S9CHi8kxs0uVsFqV7AVv+7Y1jX1hzJqTKlvI+Q/au2fJ0vaPnuvOFTP01djz6KmhwCZNrd0JhsGFabANE654B9zAByVub3W7Rl7XTd6C/r+ttTh4plyVHNst9/bnP8a3BIGCdIgUG1N1VUvHE7ZTlgcGmaJVr90Tdx+FVPXh7DVyFhRFrhEMBEZJsRR+uTuHGbuGEUabLU+Sptdo+A/OmICK2wyR4ATZUbGjseLd4ygu3z+NO1+SPU1YjNMdphnFwPlsePH9jNLUA4zu3AOZhWq1MNj9jX/0HXRpwaQcS/Ky8FDC95KVqu5pMk3peho+9YGXpSaxhzbXffUWcaOSHhmUFh+2/FeYr4='
 health:
   config:
     enabled: true

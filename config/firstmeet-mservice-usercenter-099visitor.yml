@@ -5,7 +5,7 @@ spring:
     platform: mysql
     url: jdbc:mysql://192.168.1.220:3306/user_center_visitor?useUnicode=true&characterEncoding=utf-8
     username: kaifa
-    password: chujian8
+    password: '{cipher}AQCKKFgKDKyz1SpThPl93efqXllFjMKgOFC/Pw5k/tbIMEHXMYHLo1W6l6RlLb0cjOkOVFOOXQG9pUMYO6gJMZukrHYYPvngvYHxNSV6U56GDYPfu5uwYHIz9jvstvlMP3WRlpWr7kaAJLooAo164af0WRP6S2KBSWBk2g68T6T2pWBg4pf6DzNOjcJrAOZb9c3xDK9Nmdmu/KZm5CZC/ncRAg0fWbwKMZrfev1YTJUFGf21eXan73dPyuTJkfx4cc7JHmjdiV7+O97Dkd3r3jiHl2zHvaRX8wBAZmtzlCarmCSmHFisN0NEkzBeAg0Ys84f6744G9L+m3F0XSAXPkvwr1EHayHqlR4UVEkiEPLBAlDmYmmhgbs2avg0EL8LFo0='
     druid:
       initial-size: 50
       min-idle: 50
@@ -42,9 +42,6 @@ chujian:
   visitor:
     enable: true
     username-prefix:
-  token:
-    key:
-      public-key-string: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB
 server:
   port: 8080
 grpc:

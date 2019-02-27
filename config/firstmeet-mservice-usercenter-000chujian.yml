@@ -5,7 +5,7 @@ spring:
     platform: mysql
     url: jdbc:mysql://192.168.1.220:3306/user_center_chujian?useUnicode=true&characterEncoding=utf-8
     username: kaifa
-    password: chujian8
+    password: '{cipher}AQCak7CFRnlmsIczShdk59/LLukfDXDNnJr7SOuEO9NiHUZCk5JoyZG/zMQ4jj+h3wTybfdJWAy/b4Gx+HAqDpHMnMH000KbulYHgS4nY30yzjhYiPPbgQbeMhtE9FRDfbDh/Wr1hvdNWQQedtuReR0jkjXaL6b/WAmKK49XDW3HWItZvjGtuWZcsFMrtilBT3zqeN8afI4O46DVBOucLQ6/AEpOU7bWda2alACVo7PfCGo0WQbJv4TI4Lh0tfcwPkEWIePOg/tUlTIfxj+X/gavRKu/lwh7l4p3ev6UkKtpPHqhW8QpoHtl/Rbacf+ZlOu6ibZUiZMRvHri3VZoztdMf/JxKcpV3OpHRIA8mk1tMnmRJXZezn8G5f8H7QWdzvE='
     druid:
       initial-size: 50
       min-idle: 50
@@ -30,7 +30,7 @@ spring:
     host: smtp.16801.com
     port: 25
     username: thai-support@16801.com
-    password: 3a3d7d00gDN0Hdvj
+    password: '{cipher}AQBckJJS1NSHZC16ADvGssBWpXeEUz6yI+wzolzwpOgzgs791DeHBRoczQWlrdy4E1E6H3mjnfeHW4OZbMHL8wKgLTOIMFFD06D96HjkEvYESpK2WpVQpL4LZHCGtpz+oSaVS+DQW30jIqMuVfSb5QuPYNamMdIL+UoSagdT7B7mlVAsk3rI/zD49hUotu1EtvTBr9bnHT3XO/gSm5A6+TZyNfgYwKwhsA4VXlyFXb084m1Z3hOgshw1kQPvxDBCtSrh4kdm6radRAmQPv+6jYadF5hiosLi77p36FzJRmj7d7boCEDRTd/QI6N7AAcUz3iMZAdrtboxenY+A6kV6opb2OVyxghRNN0M1/QuS36RvSNtTkMcIExN6TGI7kKfBpF1ipWFxPmwtiCrmCFAnP8d'
     default-encoding: utf-8
   thymeleaf:
     cache: false
@@ -57,13 +57,10 @@ chujian:
       base-path: https://test.hwtg.16801.com:8443
   password:
     enable-encode: true
-  token:
-    key:
-      public-key-string: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB
 aliyun:
   sms:
-    access-key-id: LTAIAhjBU3Ocdo0b
-    access-key-secret: 5LI7QlVkOjSP4JnLq0S8ifLOrD83vd
+    access-key-id: '{cipher}AQCK8HVR+yebwbouq1JAhK31HRjO+1LtkLSoErZorUsslhgafGgLQZ6K+9dqouRwFr93bz7146SGRQvCQHt05Mo4LuWl11m4RFiCTDPP2o6ho/rOBH3/hk/ycPu7rY90ItE7wHJgljX/ZlxBtDseHDNX0YKN1K9SfA0QsDYRxwHzDbWt+4VoVHDjfDitsB9V2qxVE5kDimaEJOBaI+iz8+TSZP1+6FH1zMAtwIFvUTZ1gxWXJq9Fn2BEn+G0zwD5AEZHy+F3nQ3/JK0Eo0sNkumcvFsBnNcJIAB8MkSc+oft1lsfkG6KP9Tr5hxEowwNCimCPQvexdIndAZrIxtmQKAmWa4O38V7CNC9zUPBiFspMV3cS0k50YorOxpfuhmnTQrL8+RY/2u70jV60cSJualj'
+    access-key-secret: '{cipher}AQDcZQ8upobnIxdElFTfnwV77d64b87tHps/YMihkRYpYJpwWHDWKsfTx4A/4iImjNNchuwCRyEQnZFM/wMUdmz5MmOX7Ldx2m+MbnqZXTJq6d9ofl/exPdkjiY7ZuaAHQrwNjOhGADNvQvmHB6Mo5hm5ZDdfZYppsq4SQ+5N+3TopUUZsRfn3xrH8g6VDtROxc5tcuFpmrY87Cij3+/L7zkkt4DnpQEQbTwphDuJO3oBmfhsCmjidwbu/F8UKB7UAT2502FsBryAcB9vhiqBPCc0Ygvs6n/UvynbQF9onZU6ylfUBTW8Tb4QqLfXYiFl1PBee9UY/vIZFUvvZq7Hj2tKFOH9lj9o3cZFu7FU/kYAVv/KfiGV0QJP/ObK0+uz0v3UFCiltFAITJJGqPeTBv6'
     sign-name: 初见科技
     connect-timeout: 1000
     read-timeout: 1000
