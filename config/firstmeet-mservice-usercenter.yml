@@ -5,7 +5,7 @@ spring:
     platform: mysql
     url: jdbc:mysql://192.168.1.220:3306/user_center?useUnicode=true&characterEncoding=utf-8
     username: kaifa
-    password: chujian8
+    password: '{cipher}AQBzV0FjR1l0sSY2FLj88SFxBJISty93xfTamp2LZg09OlupL5wV5wwRqrAxPNdnvAA/7u4IJsiCyo7yLFLfwe8342XD2zvGWK1RS2O/UaclgAWGCwuT6P4BzekGKhKPmTMsFdSZ8RSiMKuvuMF3PVHT+lSaapj7lDhs5dfa/LYwMGMPaEwmkuNb79jS+iM4G5lQorhhZwPl+AgjPAf8Gg7YPwlrDTSuvuOcscECEsMj7qxXNtwIa1UiVtb6KmptMMtjsCxYVHtWVIpmwcVT39fCoEhNI4a2eMGJFEIJsHc5766ovOT3Lk2YPC1fF+d90FN/XrIUaUjkQA/GhCjlfVP57Hrz9CnPohxgfYV8ouz1ckQyxraVH8JSBaXRteCJyiI='
     druid:
       initial-size: 50
       min-idle: 50
