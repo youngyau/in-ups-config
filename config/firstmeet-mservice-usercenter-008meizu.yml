@@ -1,0 +1,55 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    platform: mysql
+    url: jdbc:mysql://192.168.1.220:3306/user_center_meizu?useUnicode=true&characterEncoding=utf-8
+    username: kaifa
+    password: '{cipher}AQCews4jCSQNo2pk2CwQxTQMYJQXGbJ7OL3F/ARk0emuFmCbh4HPCu0lTbW0LGp4hXx7k5lgZrfvhL4tdsyvCdL5fCGJG9zJXzBdDwK58X2vTV6Rpu91Dug6E927JK7YmmCqssVOIeJsLNiXXK4zdNHwa2VEJY426RLakYXeC3lkXnryj8Rc+elzGCfSk1cKWtJqeceQ5ln/9Igf1Xv1zy2cICSsqnWlXcufV5j88Pfi+sud4LMSvM6/rCip1JZTsESCzSOrCFd61/55j53EeToZMg5eJ1y7lpE2JozIbCjrHd6nt4MnSLNcTbT1CCdSdIxzqs4tJo48ACihT5/0vOp9qDupGm1syNJuVgQoRP9UUZqKU0vBnQBm0fHzu9szknE='
+    druid:
+      initial-size: 50
+      min-idle: 50
+      max-active: 600
+      max-wait: 2000  #配置获取连接等待超时的时间
+      time-between-eviction-runs-millis: 60000 #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      min-evictable-idle-time-millis: 300000 #配置一个连接在池中最小生存的时间，单位是毫秒
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      filters: stat,slf4j
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database: mysql
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+meizu:
+  login-verify:
+    enabled: false
+    url: https://open-api.flyme.cn/v2/check
+chujian:
+  usercenter:
+    hostname: usercenter.ups.firstmeet
+    port: 6565
+  uid-generator:
+    hostname: uidgenerator.ups.firstmeet
+    port: 6565
+  drools:
+    rule:
+      path: 'classpath*:rules/**/*.drl'
+server:
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/access-log
+  port: 8080
+grpc:
+  port: 6565
