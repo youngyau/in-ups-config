@@ -1,0 +1,9 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+chujian:
+  token:
+    key:
+      public-key-string: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB
