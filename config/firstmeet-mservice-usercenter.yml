@@ -24,7 +24,7 @@ spring:
           slow-sql-millis: 1000
   jpa:
     database: mysql
-    show-sql: false
+    show-sql: true
 management:
   endpoints:
     web:
