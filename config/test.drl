@@ -1,0 +1,8 @@
+package rules;
+
+import com.chujian.drools;
+
+rule ""
+when
+then
+end
