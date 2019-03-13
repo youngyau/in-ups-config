@@ -21,4 +21,4 @@ threads: 0
 nettyThreads: 0
 transportMode: "NIO"
 codec:
-  class: org.redisson.codec.JsonJacksonCodec
+  class: org.redisson.codec.FstCodec
