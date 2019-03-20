@@ -1,0 +1,27 @@
+package rules;
+
+import com.chujian.sdk.dto.SdkSetting;
+
+rule "getSdkSettingByClientId"
+  no-loop true
+  lock-on-active true
+  salience 1
+  when
+    $sdkSetting : SdkSetting(clientId == "txapp" || clientId == "kdapp" || clientId == "tgapp")
+  then
+    $sdkSetting.addItem("real_name_authentication","",true);
+    $sdkSetting.addItem("force_real_name_authentication","",true);
+    $sdkSetting.addItem("notice","",true);
+    $sdkSetting.addItem("force_real_name_authentication_message","根据《网络游戏管理办法》规定：本游戏用户，需使用有效身份证件，进行游戏！",true);
+    $sdkSetting.addItem("real_name_authentication_message","为了保障您的合法权益，请实名认证！",true);
+    $sdkSetting.addItem("visitor_screenshot_to_photo","建议你将该账号密码截图保存至相册，并尽快升级账号！",true);
+    $sdkSetting.addItem("successful_bind","绑定成功！",true);
+    $sdkSetting.addItem("upgrade_caution","为了账号更安全及您的权益，需升级账号才能充值！",true);
+    $sdkSetting.addItem("present_gift_code","赠送您一个价值XX元的礼包码：XXXXX",true);
+    $sdkSetting.addItem("android_sdk_version","v1.0.0",true);
+    $sdkSetting.addItem("ios_sdk_version","v1.0.0",true);
+    $sdkSetting.addItem("other_account_problem","其他账号问题,请联系QQ:2654123365",true);
+    $sdkSetting.addItem("bind_mobile_message","绑定手机有助于账号安全！",true);
+    $sdkSetting.addItem("olny_once_account_change","账户只能变更一次，密码不限次。",true);
+    update($sdkSetting);
+end
